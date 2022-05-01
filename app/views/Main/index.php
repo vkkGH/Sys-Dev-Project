@@ -8,20 +8,9 @@
 </head>
 <body>
 	<div class='container'>
-		<?php
-			$this->view('shared/clock');
-		?>
-
-
-		This is a password hash for the word password: 
-		<?= password_hash('password', PASSWORD_DEFAULT) ?>
-
-
-		<h1>Landing page</h1>
-		<p>Welcome to this Web application. </p>
-		<?php
-			$this->view('shared/navigation');
-		?>
+		<h1>Home</h1>
+		<p>Welcome to our website</p>	
+		<li><a href='/Customer/index'> Customer index </a></li>
 	</div>
 </body>
 </html>
