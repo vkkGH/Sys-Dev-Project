@@ -1,12 +1,12 @@
 <?php 
 namespace app\core;
 
-class DBConnection {
+class DBConnection{
 
 	static $connection = null;
 
-	private function __construct() {
-		if (self::$connection == null) {
+	private function __construct(){
+		if(self::$connection == null){
 			$host = 'localhost';
 			$DBname = 'sysdevproject';
 			$user = 'root';
@@ -15,7 +15,7 @@ class DBConnection {
 		}
 	}
 
-	public static function getInstance() {
+	public static function getInstance(){
 		new DBConnection();
 		return self::$connection;
 	}
