@@ -16,18 +16,11 @@
 	<div class='container'>
 		<?php $this->view('shared/header'); ?>
 		
-		<h1>All Customers</h1>
-		<p>This is the list of customers.</p>
-		<table>
-			<tr> 
-				<th>First Name</th> <th>Last Name</th> <th>Gender</th> <th>Address</th> <th>City</th> 
-				<th>Postal Code</th> <th>Main Phone</th> <th>Secondairy Phone</th> <th>E-mail Address</th> 
-				<th>Laval Reward</th> <th>Payment Installments</th> <th>Payment Method</th> <th>Functions</th> 
-			</tr>
+		<h1> <?php echo "$data->$first_name $data->last_name"?></h1>
 			
 			<?php 
 				foreach ($data as $customer) {
-					echo "<tr id='customer'>
+					echo "<tr class='customer'>
 						<td>$customer->first_name</td>
 						<td>$customer->last_name</td>
 						<td>$customer->gender</td>
