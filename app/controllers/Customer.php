@@ -1,11 +1,12 @@
 <?php
 namespace app\controllers;
 
-class Customer extends \app\core\Controller{
-	public function index(){
-		$myCustomer = new \app\models\Customer();
-		$customer = $myCustomer->getAll();
-		$this->view('Customer/index',$customer);
+class Customer extends \app\core\Controller {
+	
+	public function index() {
+		$customer = new \app\models\Customer();
+		$data = $customer->getAll();
+		$this->view('Customer/index', $data);
 	}
 
 	// public function create(){
@@ -40,15 +41,15 @@ class Customer extends \app\core\Controller{
 	// 	}
 	// }
 
-	public function delete($customer_id){//TODO: make sure to satisfy the issue for the constraint
+	public function delete($customer_id) {
 		$customer = new \app\models\Customer();
 		$customer->delete($customer_id);
 		header('location:/Customer/index');
 	}
 
-	// public function details($client_id){
-	// 	$client = new \app\models\Client();
-	// 	$client= $client->get($client_id);//get the specific client
-	// 	$this->view('Client/details', $client);
-	// }
+	public function details($customer_id) {
+		$customer = new \app\models\Customer();
+		$data = $customer->get($customer_id);
+		$this->view('Client/details', $data);
+	}
 }
