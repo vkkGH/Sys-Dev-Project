@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="/app/styles/tables.css">
 	
 	<title>Database</title>
-	
+
 </head>
 
 <body>
@@ -17,7 +17,12 @@
 		<?php $this->view('shared/header'); ?>
 		
 		<h1>All Customers</h1>
-		<p>This is the list of customers.</p>
+		
+		<?php $this->view('shared/navigation'); ?>
+		
+		<br>
+		<br>
+		
 		<table>
 			<tr> 
 				<th>First Name</th> <th>Last Name</th> <th>Gender</th> <th>Address</th> <th>City</th> 
