@@ -32,7 +32,7 @@
 			
 			<?php 
 				foreach ($data as $customer) {
-					echo "<tr id='customer'>
+					echo "<tr class='customer'>
 						<td>$customer->first_name</td>
 						<td>$customer->last_name</td>
 						<td>$customer->gender</td>
