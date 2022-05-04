@@ -5,6 +5,26 @@
 	<!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 	<title><?= _("Customer Index") ?></title>
+	<?php
+			$this->view('shared/navigation');
+		?>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 </head>
 <body>
 	<div class='container'>
@@ -29,8 +49,8 @@
 				<td>$customer->payment_installments</td>
 				<td>$customer->payment_method</td>
 					<td>
-						<a href='/Customer/update/$customer->customer_id'>" . _("update") . "</a> | 
-						<a href='/Customer/delete/$customer->customer_id'>" . _("delete") . "</a> | 
+						<a href='/Customer/update/$customer->customer_id'>" . _("update") . "</a>  
+						<a href='/Customer/delete/$customer->customer_id'>" . _("delete") . "</a>  
 					</td>
 				<tr>";
 			}
@@ -39,4 +59,5 @@
 		
 	</div>
 </body>
+
 </html>
