@@ -13,33 +13,19 @@
 
 <body>
 	<div class='container'>
-		<?php $this->view('shared/header'); ?>
-		
-		<h1> <?php echo "$data->$first_name $data->last_name" ?></h1>
+		<?php $this->view('shared/header'); ?>		
 			
-			<?php 
-				foreach ($data as $customer) {
-					echo "<tr class='customer'>
-						<td>$customer->first_name</td>
-						<td>$customer->last_name</td>
-						<td>$customer->gender</td>
-						<td>$customer->address</td>
-						<td>$customer->city</td>
-						<td>$customer->postal_code</td>
-						<td>$customer->main_phone</td>
-						<td>$customer->secondary_phone</td>
-						<td>$customer->email</td>
-						<td>$customer->laval_reward</td>
-						<td>$customer->payment_installments</td>
-						<td>$customer->payment_method</td>
-						<td>
-							<a href='/Customer/update/$customer->customer_id'>" . "Update" . "</a>
-							<a href='/Customer/delete/$customer->customer_id'>" . "Delete" . "</a>
-						</td>
-					<tr>";
-				}
-			?>
-		</table>
+		<?php 
+			echo "<h1>$data->first_name $data->last_name</h1>
+				<p>Gender: $data->gender<br>
+				Address: $data->address, $data->city $data->postal_code, Canada<br>
+				Phone number: $data->main_phone<br>
+				Secondairy phone number: $data->secondary_phone<br>
+				E-mail address: $data->email<br>
+				Laval reward: $data->laval_reward<br>
+				Payment installments: $data->payment_installments<br>
+				Payment method: $data->payment_method<p>";
+		?>
 	</div>
 </body>
 

@@ -48,6 +48,7 @@
 						<td>
 							<a href='/Customer/update/$customer->customer_id'>" . "Update" . "</a>
 							<a href='/Customer/delete/$customer->customer_id'>" . "Delete" . "</a>
+							<a href='/Customer/details/$customer->customer_id'>" . "Details" . "</a>
 						</td>
 					<tr>";
 				}

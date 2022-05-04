@@ -50,6 +50,6 @@ class Customer extends \app\core\Controller {
 	public function details($customer_id) {
 		$customer = new \app\models\Customer();
 		$data = $customer->get($customer_id);
-		$this->view('Client/details', $data);
+		$this->view('Customer/details', $data);
 	}
 }
