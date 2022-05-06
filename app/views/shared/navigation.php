@@ -20,6 +20,7 @@
 		  <a href='/Category/getU17'> U17 Category </a>
 		  <a href='/Category/getU19'> U18 Category </a>
 		  <a href='/Category/getSenior'> Senior Category </a>
+		  <a href='/Form/index'> Form </a>
 	</div>
 
 	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Navigation</span>
