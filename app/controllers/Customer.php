@@ -4,9 +4,15 @@ namespace app\controllers;
 class Customer extends \app\core\Controller {
 	
 	public function index() {
-		$customer = new \app\models\Customer();
-		$data = $customer->getAll();
-		$this->view('Customer/index', $data);
+		if(!isset($_POST['search'])) {
+			$customer = new \app\models\Customer();
+			$data = $customer->getAll();
+			$this->view('Customer/index', $data);
+		}else {
+			$customers = new \app\models\Customer();
+			$data = $customers -> getCustomerBySearch($_POST['csearch']);
+			$this->view('Customer/index', $data);
+		}
 	}
 
 	// public function create(){
