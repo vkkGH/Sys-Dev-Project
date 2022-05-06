@@ -15,12 +15,30 @@
 
 
 		<?php 
-			echo "Modifying category of" . $data->fname . ' '. $data->lname;
+			echo "Modifying category of: " . $data->first_name . ' '. $data->last_name;
 			
 		?>
 
 		<form method='post' action=''>
-		<label class='form-label'>Category:<input type='text' name='category' class='form-control' value='<?= $data->category?>' /></label><br>
+			<p>Category:</p>
+		<input type="radio" id="pamplemousse" name="category" value="PAMPLEMOUSSE">
+ 		<label for="pamplemousse">Pamplemousse</label><br>
+ 		<input type="radio" id="u13" name="category" value="U13" >
+ 		<label for="u13">U13</label><br>
+
+ 		<input type="radio" id="u15" name="category" value="U15" >
+ 		<label for="u15">U15</label><br>
+
+ 		<input type="radio" id="u17" name="category" value="U17" >
+ 		<label for="u17">U17</label><br>
+
+ 		<input type="radio" id="u19" name="category" value="U19" >
+ 		<label for="u19">U19</label><br>
+
+ 		<input type="radio" id="senior" name="category" value="SENIOR" >
+ 		<label for="senior">SENIOR</label><br>
+
+		
 		<label class='form-label'>Schedule:<input type='text' name='schedule' class='form-control' value='<?= $data->schedule?>' /></label><br>
 		<label class='form-label'>Practices per week:<input type='number' name='practices_per_week' class='form-control' value='<?= $data->practices_per_week?>' /></label><br>
 		<input type="submit" name='action' value='Update!' class='form-control' />

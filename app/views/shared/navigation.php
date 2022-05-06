@@ -14,6 +14,7 @@
 	<div id="mySidenav" class="sidenav">
 		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		  <a href='/Customer/index'> Customer index </a>
+		  <a href='/Category/getPamplemousse'> Pamplemousse Category </a>
 		  <a href='/Category/getU13'> U13 Category </a>
 		  <a href='/Category/getU15'> U15 Category </a>
 		  <a href='/Category/getU17'> U17 Category </a>

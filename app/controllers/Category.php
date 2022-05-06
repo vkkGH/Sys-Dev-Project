@@ -9,6 +9,13 @@ class Category extends \app\core\Controller{
 		
 	}
 
+	public function getPamplemousse(){
+		$myCategory = new \app\models\Category();
+		$category = $myCategory->getPamplemousse();
+		$this->view('Category/index',$category);
+		
+	}
+
 	public function getU13(){
 		$myCategory = new \app\models\Category();
 		$category = $myCategory->getU13();
