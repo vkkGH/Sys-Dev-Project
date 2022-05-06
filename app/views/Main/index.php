@@ -9,13 +9,16 @@
 	<title>Landing page</title>
 	
 </head>
+
 <body>
+
+	<?php $this->view('shared/header'); ?>
+	
 	<div class='container'>
-		<?php $this->view('shared/header'); ?>
-		
 		<h1>Home</h1>
 		<p>Welcome to our website</p>	
-		<li><a href='/Customer/index'> Customer index </a></li>
+		<li><a href='/Customer/index'>Customer index</a></li>
 	</div>
+	
 </body>
 </html>
