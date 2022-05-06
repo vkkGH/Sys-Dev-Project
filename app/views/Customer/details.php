@@ -12,8 +12,11 @@
 </head>
 
 <body>
+
+	<?php $this->view('shared/header'); ?>	
+	
 	<div class='container'>
-		<?php $this->view('shared/header'); ?>		
+			
 			
 		<?php 
 			echo "<h1>$data->first_name $data->last_name</h1>
@@ -27,6 +30,7 @@
 				Payment method: $data->payment_method<p>";
 		?>
 	</div>
+	
 </body>
 
 </html>
