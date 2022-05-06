@@ -1,24 +1,11 @@
 <html>
-<style>
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" type="text/css" href="/app/styles/general.css">
+	<link rel="stylesheet" type="text/css" href="/app/styles/tables.css">
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-<head>
-	<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 	<title><?= _("Category Index") ?></title>
 	<?php
 			$this->view('shared/navigation');
@@ -44,7 +31,8 @@ tr:nth-child(even) {
 			echo "There is nobody registered in this category";
 		} else{
 			foreach ($data as $category) {
-				echo "<tr><td>$category->first_name</td>
+				echo "<tr class='customer'>
+				<td>$category->first_name</td>
 				<td>$category->last_name</td>
 				<td>$category->category</td>
 				<td>$category->schedule</td>
