@@ -12,6 +12,17 @@
 
 </head>
 
+
+
+<style>
+	.search {
+		float: right;
+	}
+</style>
+
+
+
+<form action="" method="Post">
 <body>
 	<div class='container'>
 		<?php $this->view('shared/header'); ?>
@@ -19,7 +30,13 @@
 		<h1>All Customers</h1>
 		
 		<?php $this->view('shared/navigation'); ?>
-		
+
+			<div class='search'>
+				<label for="csearch">Search Customer: </label>
+				<input type="search" id="csearch" name="csearch">
+				<button type="submit" name="search" class="btn btn-primary">Search</button><br>
+			</div>
+			
 		<br>
 		<br>
 		
