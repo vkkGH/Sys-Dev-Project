@@ -1,13 +1,24 @@
-		<ul>
-			<li><a href='/Client/index'>Client index</a></li>
-			<li><a href='/Client/create'>Client create</a></li>
-			<li><a href='/Main/index'>Main index</a></li>
-		<?php if(!isset($_SESSION['user_id'])){ ?>
-			<li><a href='/User/login'>Log in</a></li>
-		<?php }else{ ?>
-			<li><a href='/User/logout'>Log out</a></li>
-		<?php } ?>
-		</ul>
+<link rel="stylesheet" type="text/css" href="/app/styles/navigation.css">
 
+<div id="mySidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	<a href='/Customer/index'> Customer index </a>
+	<a href='/Category/getU13'> U13 Category </a>
+	<a href='/Category/getU15'> U15 Category </a>
+	<a href='/Category/getU17'> U17 Category </a>
+	<a href='/Category/getU19'> U18 Category </a>
+	<a href='/Category/getSenior'> Senior Category </a>
+</div>
 
+<span style="font-size:24px;cursor:pointer" onclick="openNav()">&#9776; Navigation</span>
+
+<script>
+	function openNav() {
+		document.getElementById("mySidenav").style.width = "250px";
+	}
+
+	function closeNav() {
+		document.getElementById("mySidenav").style.width = "0";
+	}
+</script>
 
