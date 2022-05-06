@@ -29,6 +29,32 @@ class Customer extends \app\core\Controller {
 	// 	}
 	// }
 
+	public function update($customer_id){
+		//TODO: update a specific record
+		$customer = new \app\models\Customer();
+		$customer= $customer->get($customer_id);//get the specific client
+		//TODO: check if the client exists
+		if(!isset($_POST['action'])){
+			//show the view
+			$this->view('Customer/update', $customer);
+		}else{
+			$customer->first_name=$_POST['first_name'];
+			$customer->last_name=$_POST['last_name'];
+			$customer->gender=$_POST['gender'];
+			$customer->address=$_POST['address'];
+			$customer->city=$_POST['city'];
+			$customer->postal_code=$_POST['postal_code'];
+			$customer->main_phone=$_POST['main_phone'];
+			$customer->secondary_phone=$_POST['secondary_phone'];
+			$customer->email_address=$_POST['email'];
+			$customer->laval_reward=$_POST['laval_reward'];
+			$customer->payment_installments=$_POST['payment_installments'];
+			$customer->payment_method=$_POST['payment_method'];
+			$customer->update();
+			header('location:/Customer/index');
+		}
+	}
+
 	// public function update($client_id){
 	// 	//TODO: update a specific record
 	// 	$client = new \app\models\Client();
