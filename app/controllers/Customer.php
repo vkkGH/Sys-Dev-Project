@@ -8,7 +8,7 @@ class Customer extends \app\core\Controller {
 			$customer = new \app\models\Customer();
 			$data = $customer->getAll();
 			$this->view('Customer/index', $data);
-		}else {
+		} else {
 			$customers = new \app\models\Customer();
 			$data = $customers -> getCustomerBySearch($_POST['csearch']);
 			$this->view('Customer/index', $data);

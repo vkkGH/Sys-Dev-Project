@@ -12,35 +12,15 @@
 
 </head>
 
-
-
-<style>
-	.search {
-		float: right;
-	}
-</style>
-
-
-
 <form action="" method="Post">
 <body>
+	<?php $this->view('shared/header'); ?>
 	<div class='container'>
-		<?php $this->view('shared/header'); ?>
 		
-		<h1>All Customers</h1>
-		
-		<?php $this->view('shared/navigation'); ?>
-
-			<div class='search'>
-				<label for="csearch">Search Customer: </label>
-				<input type="search" id="csearch" name="csearch">
-				<button type="submit" name="search" class="btn btn-primary">Search</button><br>
-			</div>
-			
-		<br>
-		<br>
+		<h1>Customers</h1>
 		
 		<table>
+		
 			<tr> 
 				<th>First Name</th> <th>Last Name</th> <th>Gender</th> <th>Address</th> <th>City</th> 
 				<th>Postal Code</th> <th>Main Phone</th> <th>Secondairy Phone</th> <th>E-mail Address</th> 
@@ -71,7 +51,9 @@
 				}
 			?>
 		</table>
+		
 	</div>
+	
 </body>
 
 </html>

@@ -7,6 +7,7 @@
 
 .link { 
   	padding: 8px;
+	margin-top: 3px;
 	font-weight: bold;
 	color: #818181;
   	text-align: center;
@@ -25,9 +26,23 @@
   	text-decoration: none;
 }
 
-.left > a {
+span {
 	float: left;
 	margin-left: 10px;
+	margin-top: 3px;
+	color: #818181;
+	transition: 0.3s;
+}
+
+span:hover {
+	float: left;
+	margin-left: 10px;
+	color: #f1f1f1;
+}
+
+.left > a {
+	float: left;
+	margin-left: 94px;
 }
 
 .right > a {
