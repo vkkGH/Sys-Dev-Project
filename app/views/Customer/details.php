@@ -28,7 +28,7 @@
 				Payment method: $data->payment_method<p>";
 		?>
 	</div>
-	
+	<button onClick="window.print()">Print this page</button>
 </body>
 
 </html>

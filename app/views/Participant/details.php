@@ -17,9 +17,15 @@
 	
 	<div class='container'>
 		<?php 
+		$category = new \app\models\Category();
+		$category = $category->get($data->participant_id);
+
 			echo "<h1>$data->first_name $data->last_name</h1>
 				<p>Gender: $data->gender<br>
 				Date of Birth: $data->dob<br>
+				Category:".$category->category."<br>
+				Category Schedule:".$category->schedule."<br>
+				Practices Per Week:".$category->practices_per_week."<br>
 				Address: $data->address<br>
 				City: $data->city<br>
 				Postal Code: $data->postal_code<br>
@@ -48,7 +54,7 @@
 				<p>$data->notes</p>";
 		?>
 	</div>
-	
+	<button onClick="window.print()">Print this page</button>
 </body>
 
 </html>
