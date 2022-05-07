@@ -16,14 +16,12 @@
 	<?php $this->view('shared/header'); ?>	
 	
 	<div class='container'>
-			
-			
 		<?php 
 			echo "<h1>$data->first_name $data->last_name</h1>
 				<p>Gender: $data->gender<br>
 				Address: $data->address, $data->city $data->postal_code, Canada<br>
 				Phone number: $data->main_phone<br>
-				Secondairy phone number: $data->secondary_phone<br>
+				Secondary phone number: $data->secondary_phone<br>
 				E-mail address: $data->email<br>
 				Laval reward: $data->laval_reward<br>
 				Payment installments: $data->payment_installments<br>

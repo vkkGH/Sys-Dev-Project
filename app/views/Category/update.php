@@ -16,6 +16,7 @@
 
 		<?php 
 			echo "Modifying category of: " . $data->first_name . ' '. $data->last_name;
+
 			
 		?>
 
@@ -38,7 +39,6 @@
  		<input type="radio" id="senior" name="category" value="SENIOR" >
  		<label for="senior">SENIOR</label><br>
 
-		
 		<label class='form-label'>Schedule:<input type='text' name='schedule' class='form-control' value='<?= $data->schedule?>' /></label><br>
 		<label class='form-label'>Practices per week:<input type='number' name='practices_per_week' class='form-control' value='<?= $data->practices_per_week?>' /></label><br>
 		<input type="submit" name='action' value='Update!' class='form-control' />
