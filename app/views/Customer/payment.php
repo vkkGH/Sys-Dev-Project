@@ -20,13 +20,13 @@
 	
 	<div class='container'>
 		
-		<h1>Customers</h1>
+		<h1>Payment Information</h1>
 		
 		<table>
 			<tr> 
-				<th>First Name</th> <th>Last Name</th> <th>Gender</th> <th>Address</th> <th>City</th> 
-				<th>Postal Code</th> <th>Main Phone</th> <th>Secondary Phone</th> <th>E-mail Address</th> 
-				<th>Laval Reward</th> <th>Payment Installments</th> <th>Payment Method</th> <th>Functions</th> 
+				<th>First Name</th> <th>Last Name</th> <th>Gender</th> <th>Main Phone</th> 
+				<th>Secondary Phone</th> <th>E-mail Address</th> <th>Payment Installments</th>
+				<th>Payment Method</th> <th>Functions</th> 
 			</tr>
 			
 			<?php 
@@ -35,13 +35,9 @@
 						<td>$customer->first_name</td>
 						<td>$customer->last_name</td>
 						<td>$customer->gender</td>
-						<td>$customer->address</td>
-						<td>$customer->city</td>
-						<td>$customer->postal_code</td>
 						<td>$customer->main_phone</td>
 						<td>$customer->secondary_phone</td>
 						<td>$customer->email</td>
-						<td>$customer->laval_reward</td>
 						<td>$customer->payment_installments</td>
 						<td>$customer->payment_method</td>
 						<td>

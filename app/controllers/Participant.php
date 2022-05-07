@@ -1,62 +1,72 @@
 <?php
 namespace app\controllers;
 
-class Participant extends \app\core\Controller{
-	public function index(){
-		$myParticipant = new \app\models\Participant();
-		$participant = $myParticipant->getAll();
-		$this->view('Participant/index',$participant);
+class Participant extends \app\core\Controller {
+	
+	public function index() {
+		$participant = new \app\models\Participant();
+		$participant = $participant->getAll();
+		$this->view('Participant/index', $participant);
+	}
+	
+	public function medical() {
+		$participant = new \app\models\Participant();
+		$participant = $participant->getAll();
+		$this->view('Participant/medical', $participant);
+	}
+
+	public function misc() {
+		$participant = new \app\models\Participant();
+		$participant = $participant->getAll();
+		$this->view('Participant/misc', $participant);
 	}
     
-	 public function create(){
-	 	if(!isset($_POST['action'])){	//display he view if I don't submit the form
+	public function create(){
+	 	if (!isset($_POST['action'])) {	
 	 		$this->view('Participant/create');
-	 	}else{	//process the data
+	 	} else {	
 			$newParticipant = new \app\models\Participant();
 	 		$newParticipant->customer_id=$_POST['customer_id'];
 	 		$newParticipant->first_name=$_POST['first_name'];
 	 		$newParticipant->last_name=$_POST['last_name'];
 	 		$newParticipant->gender=$_POST['gender'];
-			 $newParticipant->address=$_POST['address'];
-			 $newParticipant->city=$_POST['city'];
-			 $newParticipant->postal_code=$_POST['postal_code'];
-			 $newParticipant->main_phone=$_POST['main_phone'];
-			 $newParticipant->secondary_phone=$_POST['secondary_phone'];
-			 $newParticipant->email=$_POST['email'];
-			 $newParticipant->occupation=$_POST['occupation'];
-			 $newParticipant->heard_from=$_POST['heard_from'];
-			 $newParticipant->years_of_practice=$_POST['years_of_practice'];
-			 $newParticipant->medical_insurance_nu=$_POST['medical_insurance_nu'];
-			 $newParticipant->expdate=$_POST['expdate'];
-			 $newParticipant->emer_contact=$_POST['emer_contact'];
-			 $newParticipant->relation_to_player=$_POST['relation_to_player'];
-			 $newParticipant->emerphone=$_POST['emerphone'];
-			 $newParticipant->allergies=$_POST['allergies'];
-			 $newParticipant->medhistory=$_POST['medhistory'];
-			 $newParticipant->epipen=$_POST['epipen'];
-			 $newParticipant->meds=$_POST['meds'];
-			 $newParticipant->specneeds=$_POST['specneeds'];
-			 $newParticipant->promotion=$_POST['promotion'];
-			 $newParticipant->transport=$_POST['transport'];
-			 $newParticipant->volunteer=$_POST['volunteer'];
-			 $newParticipant->family=$_POST['family'];
-			 $newParticipant->equipneeds=$_POST['equipneeds'];
-			 $newParticipant->notes=$_POST['notes'];
+			$newParticipant->address=$_POST['address'];
+			$newParticipant->city=$_POST['city'];
+			$newParticipant->postal_code=$_POST['postal_code'];
+			$newParticipant->main_phone=$_POST['main_phone'];
+			$newParticipant->secondary_phone=$_POST['secondary_phone'];
+			$newParticipant->email=$_POST['email'];
+			$newParticipant->occupation=$_POST['occupation'];
+			$newParticipant->heard_from=$_POST['heard_from'];
+			$newParticipant->years_of_practice=$_POST['years_of_practice'];
+			$newParticipant->medical_insurance_nu=$_POST['medical_insurance_nu'];
+			$newParticipant->expdate=$_POST['expdate'];
+			$newParticipant->emer_contact=$_POST['emer_contact'];
+			$newParticipant->relation_to_player=$_POST['relation_to_player'];
+			$newParticipant->emerphone=$_POST['emerphone'];
+			$newParticipant->allergies=$_POST['allergies'];
+			$newParticipant->medhistory=$_POST['medhistory'];
+			$newParticipant->epipen=$_POST['epipen'];
+			$newParticipant->meds=$_POST['meds'];
+			$newParticipant->specneeds=$_POST['specneeds'];
+			$newParticipant->promotion=$_POST['promotion'];
+			$newParticipant->transport=$_POST['transport'];
+			$newParticipant->volunteer=$_POST['volunteer'];
+			$newParticipant->family=$_POST['family'];
+			$newParticipant->equipneeds=$_POST['equipneeds'];
+			$newParticipant->notes=$_POST['notes'];
 			$newParticipant->insert();
 			header('location:/Participant/index');
 	 	}
-	 }
+	}
      
 
-	 public function update($participant_id){
-	 	//TODO: update a specific record
+	public function update($participant_id) {
 	 	$participant = new \app\models\Participant();
-	 	$participant= $participant->get($participant_id);//get the specific Participant
-	 	//TODO: check if the Participant exists
-	 	if(!isset($_POST['action'])){
-	 		//show the view
+	 	$participant = $participant->get($participant_id);
+	 	if (!isset($_POST['action'])) {
 	 		$this->view('Participant/update', $participant);
-	 	}else{
+	 	} else {
 			$participant->first_name=$_POST['first_name'];
 			$participant->last_name=$_POST['last_name'];
 			$participant->gender=$_POST['gender'];
@@ -85,21 +95,20 @@ class Participant extends \app\core\Controller{
 			$participant->family=$_POST['family'];
 			$participant->equipneeds=$_POST['equipneeds'];
 			$participant->notes=$_POST['notes'];
-	 	
 	 		$participant->update();
 	 		header('location:/Participant/index');
 	 	}
 	 }
 
-	public function delete($participant_id){//TODO: make sure to satisfy the issue for the constraint
+	public function delete($participant_id) {
 		$participant = new \app\models\Participant();
 		$participant->delete($participant_id);
 		header('location:/Participant/index');
 	}
 
-	 public function details($participant_id){
+	public function details($participant_id) {
 	 	$participant = new \app\models\Participant();
-	 	$participant= $participant->get($participant_id);//get the specific Participant
+	 	$participant= $participant->get($participant_id);
 	 	$this->view('Participant/details', $participant);
-	 }
+	}
 }
