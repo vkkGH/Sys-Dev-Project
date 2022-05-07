@@ -1,0 +1,17 @@
+.search {
+	float: right;
+	padding: 8px;
+	padding-right: 256px;
+}
+
+.searchbtn {
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	margin-top: 3px;
+	margin-left: 3px;
+	background-image:url(img/search.png);
+	background-size: cover;
+	background-color: rgba(255, 255, 255, 0);
+	border: none;
+}
