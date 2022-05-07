@@ -61,7 +61,15 @@
     </select>
 
   <p>Participant Section</p>
-
+  <label for="category">Category:</label>
+    <select class="form-control" id="category" name="category">
+          <option value="PAMPLEMOUSSE">PAMPLEMOUSSE (Under 11 Years Old)</option>
+          <option value="U13">U13 (Under 13 Years Old)</option>
+          <option value="U15">U15 (Under 15 Years Old)</option>
+          <option value="U17">U17 (Under 17 Years Old)</option>
+          <option value="U19">U19 (Under 19 Years Old)</option>
+          <option value="SENIOR">SENRIOR (19+ Years Old)</option>
+    </select>
   <label class='form-label'>Participant First Name:<input type='text' name='participant_first_name' class='form-control' /></label><br>  
   <label class='form-label'>Participant Last Name:<input type='text' name='participant_last_name' class='form-control' /></label><br>  
   <label class='form-label'>Participant Gender:<input type='text' name='participant_gender' class='form-control' /></label><br>  
