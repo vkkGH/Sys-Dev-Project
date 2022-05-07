@@ -1,16 +1,21 @@
 <?php
 namespace app\controllers;
 
-class Category extends \app\core\Controller{
+class Category extends \app\core\Controller {
 	
 	public function index() {
 		$myCategory = new \app\models\Category();
 		$category = $myCategory->getAll();
 		$this->view('Category/index',$category);
-		
 	}
 
-	public function getU13() {
+	public function getPamplemousse() {
+		$myCategory = new \app\models\Category();
+		$category = $myCategory->getPamplemousse();
+		$this->view('Category/index',$category);
+	}
+
+	public function getU13(){
 		$myCategory = new \app\models\Category();
 		$category = $myCategory->getU13();
 		$this->view('Category/index',$category);
@@ -23,12 +28,14 @@ class Category extends \app\core\Controller{
 		$this->view('Category/index',$category);
 		
 	}
+  
 	public function getU17() {
 		$myCategory = new \app\models\Category();
 		$category = $myCategory->getU17();
 		$this->view('Category/index',$category);
 		
 	}
+  
 	public function getU19() {
 		$myCategory = new \app\models\Category();
 		$category = $myCategory->getU19();
