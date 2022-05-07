@@ -18,11 +18,11 @@ tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
 
-.customer {
+.data {
 	color: black;
 }
 
-.customer:hover {
+.data:hover {
 	background-color: rgb(224, 224, 224);
 }
 

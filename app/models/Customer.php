@@ -70,5 +70,4 @@ class Customer extends \app\core\Model {
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Customer");
 		return $STMT->fetchAll();
 	}
-
 }
