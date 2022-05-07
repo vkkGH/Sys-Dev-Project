@@ -7,10 +7,11 @@ namespace app\filters;
 class Login{
 
 	function execute(){
-		if (!isset($_SESSION['user_id'])) {
+		if(!isset($_SESSION['user_id'])){
 			header('location:/User/index');
 			return true; //I want to indicate to the framework that the user is filtered
 		}
 		return false;
 	}
+
 }

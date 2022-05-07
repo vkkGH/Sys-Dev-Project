@@ -8,9 +8,9 @@
 
 
 	<div class="right">
-		<?php $this->view('shared/search'); ?>
-		<a class="link" href='/User/login'>Login</a>
-		
+    
+		<?php $this->view('shared/search'); ?>	
+    <a class="link" href='/User/login'>Login</a>
 	</div>
 </div> 
 
