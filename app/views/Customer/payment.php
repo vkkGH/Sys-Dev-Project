@@ -50,7 +50,7 @@
 			?>
 		</table>
 	</div>
-	
+	<button onClick="window.print()">Print this page</button>
 </body>
 
 </html>

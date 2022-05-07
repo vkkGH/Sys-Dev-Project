@@ -4,6 +4,7 @@
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	<a href='/Form/index'>Form</a>
 	<a href='/Customer/index'>Customers</a>
+	<a href='/Participant/index'>Participants</a>
 	<a href='/Category/getPamplemousse'>Pamplemousse Category</a>
 	<a href='/Category/getU13'>U13 Category</a>
 	<a href='/Category/getU15'>U15 Category</a>
