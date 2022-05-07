@@ -3,18 +3,29 @@
 <div id="mySidenav" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	<a href='/Customer/index'>Customers</a>
+	<a href='/Customer/payment'>Payment Information</a>
+	
+	<br>
+	
+	<a href='/Participant/index'>Partipants</a>
+	<a href='/Participant/medical'>Medical Histories</a>
+	<a href='/Participant/misc'>Miscellaneous Information</a>
+	
+	<br>
+	
 	<a href='/Category/getU13'>U13 Category</a>
 	<a href='/Category/getU15'>U15 Category</a>
 	<a href='/Category/getU17'>U17 Category</a>
 	<a href='/Category/getU19'>U18 Category</a>
 	<a href='/Category/getSenior'>Senior Category</a>
+	
 </div>
 
 <span style="font-size:24px;cursor:pointer" onclick="openNav()">&#9776; Navigation</span>
 
 <script>
 	function openNav() {
-		document.getElementById("mySidenav").style.width = "250px";
+		document.getElementById("mySidenav").style.width = "240px";
 	}
 
 	function closeNav() {
