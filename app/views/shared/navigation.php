@@ -2,18 +2,9 @@
 
 <div id="mySidenav" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	<a href='/Form/index'>Form</a>
 	<a href='/Customer/index'>Customers</a>
-	<a href='/Customer/payment'>Payment Information</a>
-	<a href='/Form/index'> Form Page</a>
-	
-	<br>
-	
-	<a href='/Participant/index'>Partipants</a>
-	<a href='/Participant/medical'>Medical Histories</a>
-	<a href='/Participant/misc'>Miscellaneous Information</a>
-	
-	<br>
-	
+	<a href='/Category/getPamplemousse'>Pamplemousse Category</a>
 	<a href='/Category/getU13'>U13 Category</a>
 	<a href='/Category/getU15'>U15 Category</a>
 	<a href='/Category/getU17'>U17 Category</a>
@@ -26,10 +17,11 @@
 
 <script>
 	function openNav() {
-		document.getElementById("mySidenav").style.width = "240px";
+		document.getElementById("mySidenav").style.width = "250px";
 	}
 
 	function closeNav() {
 		document.getElementById("mySidenav").style.width = "0";
 	}
 </script>
+
