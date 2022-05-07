@@ -3,6 +3,14 @@ namespace app\models;
 
 class Category extends \app\core\Model{
 
+
+	#[\app\validation\NonBlankString]
+	var $category;
+	#[\app\validation\NonBlankString]
+	var $schedule;
+	#[\app\validation\NonBlankString]
+	var $practices_per_week;
+
 	function __construct(){
 		parent::__construct();
 	}
@@ -14,6 +22,14 @@ class Category extends \app\core\Model{
 		$STMT->execute(['participant_id'=>$participant_id]);
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Category");
 		return $STMT->fetch();
+	}
+
+	function getPamplemousse(){
+		$SQL = "SELECT * FROM category JOIN participant ON category.participant_id = participant.participant_id WHERE category.category = 'PAMPLEMOUSSE'";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Category");
+		return $STMT->fetchAll();
 	}
 
 	function getU13(){
