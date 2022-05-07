@@ -22,7 +22,6 @@ tr:nth-child(even) {
 	color: black;
 }
 
-
 .customer:hover {
 	background-color: rgb(224, 224, 224);
 }

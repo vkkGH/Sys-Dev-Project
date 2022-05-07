@@ -23,7 +23,7 @@
 		
 			<tr> 
 				<th>First Name</th> <th>Last Name</th> <th>Gender</th> <th>Address</th> <th>City</th> 
-				<th>Postal Code</th> <th>Main Phone</th> <th>Secondairy Phone</th> <th>E-mail Address</th> 
+				<th>Postal Code</th> <th>Main Phone</th> <th>Secondary Phone</th> <th>E-mail Address</th> 
 				<th>Laval Reward</th> <th>Payment Installments</th> <th>Payment Method</th> <th>Functions</th> 
 			</tr>
 			

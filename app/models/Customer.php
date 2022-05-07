@@ -41,7 +41,6 @@ class Customer extends \app\core\Model {
 	}
 
 	function update() {
-		if (isValid()) {
 			$SQL = 'UPDATE customer SET first_name = :first_name, last_name = :last_name, gender = :gender, 
 			address = :address, city = :city, postal_code = :postal_code, main_phone = :main_phone, 
 			secondary_phone = :secondary_phone, email = :email, laval_reward = :laval_reward, 
@@ -55,7 +54,6 @@ class Customer extends \app\core\Model {
 					'secondary_phone'=>$this->secondary_phone, 'email'=>$this->email, 
 					'laval_reward'=>$this->laval_reward, 'payment_installments'=>$this->payment_installments, 
 					'payment_method'=>$this->payment_method, 'customer_id'=>$this->customer_id]);
-		}
 	}
 
 	function delete($customer_id) {
