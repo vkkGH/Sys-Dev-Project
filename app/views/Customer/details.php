@@ -27,8 +27,11 @@
 				Payment installments: $data->payment_installments<br>
 				Payment method: $data->payment_method<p>";
 		?>
+		
+		<br>
+		
+		<button class="print" onClick="window.print()">Print this page</button>
 	</div>
-	<button onClick="window.print()">Print this page</button>
 </body>
 
 </html>

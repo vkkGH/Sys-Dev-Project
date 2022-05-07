@@ -53,8 +53,12 @@
 				}
 			?>
 		</table>
+		
+		<br>
+		
+		<button class="print" onClick="window.print()">Print this page</button>
 	</div>
-	<button onClick="window.print()">Print this page</button>
+	
 </body>
 
 </html>
