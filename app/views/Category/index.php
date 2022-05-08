@@ -10,9 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="/app/styles/tables.css">
 
 	<title><?= _("Category Index") ?></title>
-	<?php
-			$this->view('shared/navigation');
-		?>
+		<?php $this->view('shared/header'); ?>
 
 </head>
 <body>
