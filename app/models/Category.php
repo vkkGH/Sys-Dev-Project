@@ -96,4 +96,14 @@ class Category extends \app\core\Model {
 		$STMT = self::$_connection->prepare($SQL);
 		$STMT->execute(['participant_id'=>$participant_id]);
 	}
+
+	
+	public function getCategoryBySearch($Customer) {
+		$yes = "WHERE participant_id LIKE '%$Customer%' OR 	category LIKE '%$Customer%' OR 	schedule LIKE '%$Customer%' OR practices_per_week LIKE '%$Customer%'";
+		$SQL = "SELECT * FROM category JOIN participant ON category.participant_id = participant.participant_id' $yes";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Category");
+		return $STMT->fetchAll();
+	}
 }

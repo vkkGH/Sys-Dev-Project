@@ -42,7 +42,7 @@
 						<td>$participant->emer_phone</td>
 						<td>$participant->allergies</td>
 						<td>$participant->med_history</td>";
-						if ($participant->epipen == 0) { echo "<td>No</td>"; } else { echo "<td>No</td>"; }
+						if ($participant->epipen == 0) { echo "<td>Yes</td>"; } else { echo "<td>No</td>"; }
 					echo "<td>$participant->meds</td>
 						<td>$participant->spec_needs</td>
 						<td>

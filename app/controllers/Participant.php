@@ -4,21 +4,40 @@ namespace app\controllers;
 class Participant extends \app\core\Controller {
 	
 	public function index() {
-		$participant = new \app\models\Participant();
-		$participant = $participant->getAll();
-		$this->view('Participant/index', $participant);
+		if (!isset($_POST['search'])) {
+			$participant = new \app\models\Participant();
+			$participant = $participant->getAll();
+			$this->view('Participant/index', $participant);
+		} else {
+			$participants = new \app\models\Participant();
+			$participant = $participants -> getParticipantBySearch($_POST['csearch']);
+			$this->view('Participant/index', $participant);
+		}
 	}
 	
 	public function medical() {
-		$participant = new \app\models\Participant();
-		$participant = $participant->getAll();
-		$this->view('Participant/medical', $participant);
+		if (!isset($_POST['search'])) {
+			$participant = new \app\models\Participant();
+			$participant = $participant->getAll();
+			$this->view('Participant/medical', $participant);
+		} else {
+			$participants = new \app\models\Participant();
+			$participant = $participants -> getParticipantBySearch($_POST['csearch']);
+			$this->view('Participant/medical', $participant);
+		}
 	}
 
 	public function misc() {
-		$participant = new \app\models\Participant();
-		$participant = $participant->getAll();
-		$this->view('Participant/misc', $participant);
+		if (!isset($_POST['search'])) {
+			$participant = new \app\models\Participant();
+			$participant = $participant->getAll();
+			$this->view('Participant/misc', $participant);
+		}
+		else {
+			$participants = new \app\models\Participant();
+			$participant = $participants -> getParticipantsMiscBySearch($_POST['csearch']);
+			$this->view('Participant/misc', $participant);
+		}
 	}
     
 	public function create(){
