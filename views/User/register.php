@@ -15,8 +15,7 @@
 <body>
 
 	<?php $this->view('shared/header'); ?>
-  
-	<br><br><br>
+  <br><br><br>
 	<div class="d-flex justify-content-center align-items-center mt-5">
         <div class="card">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -35,7 +34,7 @@
 						<input type="text" name="username" class="form-control" placeholder="Username">
 						<input type="text" name="password" class="form-control" placeholder="Password">
 						<input type="text" name="password_confirm" class="form-control" placeholder="Re-Password">
-						<center><button name= "action" class="btn btn-dark btn-block">Sign up</button></center>
+						<center><button name= "action" id= "action" class="btn btn-dark btn-block">Sign up</button></center>
 					</div>
                 </div>
             </div>
