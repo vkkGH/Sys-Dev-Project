@@ -17,7 +17,7 @@ class Form extends \app\core\Controller{
 			$newForm->notes=$_POST['notes'];
 			$newForm->phone=$_POST['phone'];
 			$newForm->insert();
-			header('location:/Form/index');
+			header('location:/Form/index'); //TODO: if the form wasnt fully filled throw an error message and redirect them back to the form
 		}
 	}
 
