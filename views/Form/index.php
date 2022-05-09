@@ -26,7 +26,7 @@
 			<label for="responsible">Are you registering for yourself or for a participant for which you will be responsible?</label>
 			<select class="form-control" id="responsible" name="responsible">
 				<option value="yes">For myself</option>
-				<option value="no">For someone else (e.g child)</option>
+				<option value="no">For someone else</option>
 			</select>
 			<label class='form-label'>First Name:<input type='text' name='first_name' class='form-control' /></label><br>
 			<label class='form-label'>Last Name:<input type='text' name='last_name' class='form-control' /></label><br>
@@ -58,31 +58,9 @@
 			
 			<h3>Participant Section</h3>
 
-      <label for="category">Category (Visit our website for detailed schedule):</label>     
-      <select class="form-control" id="category" name="category">
-        <option value="PAMPLEMOUSSE">PAMPLEMOUSSE</option>
-        <option value="U13">U13</option>
-        <option value="U15">U15</option>
-        <option value="U17">U17</option>
-        <option value="U19">U19</option>
-        <option value="SENIOR">SENIOR</option>
-      </select>
-
-      <label for="schedule" id="schedule_title">Schedule:</label>     
-      <select class="form-control" id="schedule" name="schedule">
-        <option value="Monday, Thursday">Monday, Thursday</option>
-        <option value="Wednesday, Sunday">Wednesday, Sunday</option>
-      </select>
-
-
-			<label class='form-label' id='participant_first_name' >Participant First Name:<input type='text' name='participant_first_name' class='form-control'  /></label><br>  
-			<label class='form-label' id='participant_last_name' >Participant Last Name:<input type='text' name='participant_last_name' class='form-control' /></label><br>  
-			<label for="participant_gender">Gender:</label>
-      <select class="form-control" id="participant_gender" name="participant_gender">
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-      </select>
+			<label class='form-label'>Participant First Name:<input type='text' name='participant_first_name' class='form-control' /></label><br>  
+			<label class='form-label'>Participant Last Name:<input type='text' name='participant_last_name' class='form-control' /></label><br>  
+			<label class='form-label'>Participant Gender:<input type='text' name='participant_gender' class='form-control' /></label><br>  
 			<label class='form-label'>Participant Date Of Birth:<input type='date' name='dob' class='form-control' /></label><br>  
 			<label class='form-label'>Occupation or School (write NA if not applicable):<input type='text' name='occupation' class='form-control' /></label><br>  
 			<label class='form-label'>Where you heard of our club:<input type='text' name='heard_from' class='form-control' /></label><br>  
@@ -107,9 +85,58 @@
 			<label class='form-label'>Name of Participant Family Members In Club? (elligible for a discount):<input type='text' name='family' class='form-control' value='no' /></label><br>
 			<label class='form-label'>Any equipment you would wish to purchase from the club (swimsuite, glasses, etc.):<input type='text' name='equip_needs' class='form-control' value='no' /></label><br>
 			<label class='form-label'>Additional Notes:<input type='textarea' name='notes' class='form-control' /></label><br>
+
+
+
+			<div class="form-group">
+				<label for="seeAnotherField">Do You Want To See Another Field?</label>
+				<select class="form-control" id="seeAnotherField">
+					<option value="no">No Way.</option>
+					<option value="yes">Absolutely!</option>
+				</select>
+			</div>
+  
+			<div class="form-group" id="otherFieldDiv">
+				<label for="otherField">Here you go!</label>
+				<select class="form-control" id="otherField">
+					<option>Yay</option>
+					<option>Woo</option>
+					<option>Hazah</option>
+					<option>Yipee</option>
+					<option>Hoorah</option>
+				</select>
+			</div>
+  
+			<div class="form-group">
+				<label for="seeAnotherFieldGroup">Do You Want To See Another Group of Fields?</label>
+				<select class="form-control" id="seeAnotherFieldGroup">
+					<option value="no">Not Particularly.</option>
+					<option value="yes">I Guess!</option>
+				</select>
+			</div>
+  
+			<div class="form-group" id="otherFieldGroupDiv">
+				<div class="row">
+					<div class="col-6">
+						<label for="otherField1">Group: Heres One!</label>
+						<input type="text" class="form-control w-100" id="otherField1">
+					</div>
+					
+					<div class="col-6">
+						<label for="otherField2">Group: Another One!</label>
+						<input type="text" class="form-control w-100" id="otherField2">
+					</div>
+				</div>
+			</div>
+  
+			<div class="form-group">
+				<label for="comments">Comments/Questions</label>
+				<textarea class="form-control" id="comments" rows="3"></textarea>
+			</div>
+			
 			<br>
 			
-			<button type="submit" class="btn btn-primary" name="action">Submit</button>
+			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
 	
@@ -118,31 +145,37 @@
 </html>
 
 <script>
+    $("#seeAnotherField").change(function() {
+		if ($(this).val() == "yes") {
+			$('#otherFieldDiv').show();
+			$('#otherField').attr('required', '');
+			$('#otherField').attr('data-error', 'This field is required.');
+		} else {
+			$('#otherFieldDiv').hide();
+			$('#otherField').removeAttr('required');
+			$('#otherField').removeAttr('data-error');
+		}
+	});
+	
+	$("#seeAnotherField").trigger("change");
 
-  $("#responsible").change(function() {
-    if ($(this).val() == "no") {
-      $('#participant_first_name').show();
-      $('#participant_last_name').show();
-    } else {
-      $('#participant_first_name').hide();
-      $('#participant_last_name').hide();
-      
-    }
-  });
-  $("#responsible").trigger("change");
-
-
-  $("#category").change(function() {
-    if ($(this).val() == "PAMPLEMOUSSE") {
-      $('#schedule').show();
-      $('#schedule_title').show();
-    } else {
-      $('#schedule').hide();
-      $('#schedule_title').hide();
-      
-    }
-  });
-  
-  $("#category").trigger("change");
-
+	$("#seeAnotherFieldGroup").change(function() {
+		if ($(this).val() == "yes") {
+			$('#otherFieldGroupDiv').show();
+			$('#otherField1').attr('required', '');
+			$('#otherField1').attr('data-error', 'This field is required.');
+			$('#otherField2').attr('required', '');
+			$('#otherField2').attr('data-error', 'This field is required.');
+		} else {
+			$('#otherFieldGroupDiv').hide();
+			$('#otherField1').removeAttr('required');
+			$('#otherField1').removeAttr('data-error');
+			$('#otherField2').removeAttr('required');
+			$('#otherField2').removeAttr('data-error');
+		}
+	});
+	
+	$("#seeAnotherFieldGroup").trigger("change");
 </script>
+	
+	

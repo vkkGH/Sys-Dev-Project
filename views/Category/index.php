@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div class='container'>
-		<table class="data">
+		<table>
 			<tr>
     <th>First Name</th>
     <th>Last Name</th>

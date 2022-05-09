@@ -43,7 +43,7 @@ class Participant extends \app\core\Controller {
 	public function create(){
 	 	if (!isset($_POST['action'])) {	
 	 		$this->view('Participant/create');
-	 	} else {	
+	 	} else {
 			$newParticipant = new \app\models\Participant();
 	 		$newParticipant->customer_id=$_POST['customer_id'];
 	 		$newParticipant->first_name=$_POST['first_name'];

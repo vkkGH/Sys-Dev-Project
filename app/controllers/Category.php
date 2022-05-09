@@ -50,19 +50,6 @@ class Category extends \app\core\Controller {
 		
 	}
 
-	// public function create(){
-	// 	if(!isset($_POST['action'])){	//display he view if I don't submit the form
-	// 		$this->view('Category/create');
-	// 	}else{	//process the data
-	// 		$newCategory = new \app\models\Category();
-	// 		$newCategory->first_name=$_POST['first_name'];
-	// 		$newCategory->last_name=$_POST['last_name'];
-	// 		$newCategory->notes=$_POST['notes'];
-	// 		$newCategory->phone=$_POST['phone'];
-	// 		$newCategory->insert();
-	// 		header('location:/Category/index');
-	// 	}
-	// }
 
 	public function update($participant_id) {
 		$category = new \app\models\Category();
