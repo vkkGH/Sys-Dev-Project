@@ -1,11 +1,15 @@
 <html>
+
 <head>
-	<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" type="text/css" href="/app/styles/general.css">
+
 	<title>Customer Update</title>
 </head>
+
 <body>
 	<?php $this->view('shared/header'); ?>
 
@@ -25,8 +29,9 @@
 			<label class='form-label'>Laval Reward:<input type='text' name='laval_reward' value= '<?= $data->laval_reward ?>' class='form-control' /></label><br>
 			<label class='form-label'>Payment Installments:<input type='text' name='payment_installments' value= '<?= $data->payment_installments ?>' class='form-control' /></label><br>
 			<label class='form-label'>Payment Method:<input type='text' name='payment_method' value= '<?= $data->payment_method ?>' class='form-control' /></label><br>
-			<input type="submit" name='action' value='Create!' class='form-control' />
+			<input type="submit" name='action' value='Submit' class='form-control' /><br>
 		</form>
 	</div>
 </body>
+
 </html>

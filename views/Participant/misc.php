@@ -38,10 +38,10 @@
 						<td>$participant->occupation</td>
 						<td>$participant->heard_from</td>
 						<td>$participant->years_of_practice</td>";
-						if ($participant->promotion == 0) { echo "<td>Yes</td>"; } else { echo "<td>No</td>"; }
-						if ($participant->transport == 0) { echo "<td>Yes</td>"; } else { echo "<td>No</td>"; }
-						if ($participant->volunteer == 0) { echo "<td>Yes</td>"; } else { echo "<td>No</td>"; }
-						if ($participant->family == 0) { echo "<td>Yes</td>"; } else { echo "<td>No</td>"; }
+						if ($participant->promotion == 0) { echo "<td>No</td>"; } else { echo "<td>Yes</td>"; }
+						if ($participant->transport == 0) { echo "<td>No</td>"; } else { echo "<td>Yes</td>"; }
+						if ($participant->volunteer == 0) { echo "<td>No</td>"; } else { echo "<td>Yes</td>"; }
+						if ($participant->family == 0) { echo "<td>No</td>"; } else { echo "<td>Yes</td>"; }
 					echo "<td>$participant->equip_needs</td>
 						<td>
 							<a href='/participant/update/$participant->participant_id'>" . "Update" . "</a>

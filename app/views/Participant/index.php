@@ -29,8 +29,9 @@
 			</tr>
 			
 			<?php 
+				$category = new \app\models\Category();
+				
 				foreach ($data as $participant) {
-					$category = new \app\models\Category();
 					$category = $category->get($participant->participant_id);
 
 					echo "<tr class='data'>
@@ -46,12 +47,10 @@
 						<td>$participant->email</td>
 						<td>".$category->category."</td>
 						<td>
-							<a href='/Participant/update/$participant->participant_id'>" . "Update Participant's Information" . "</a> <br>
-							<a href='/Participant/updateCategory/$category->participant_id'>" . _("Update Participant's Category") .  "</a> <br>
-							
-							<a href='/Participant/details/$participant->participant_id'>" . "Details" . "</a> <br>
+							<a href='/Participant/update/$participant->participant_id'>" . "Update" . "</a> 
+							<a href='/Participant/details/$participant->participant_id'>" . "Details" . "</a>
 							<a href='/Participant/delete/$participant->participant_id'>" . "Delete" . "</a> <br>
-							
+							<a href='/Participant/updateCategory/$category->participant_id'>" . _("Move Category") .  "</a>
 						</td>
 					<tr>";
 				}

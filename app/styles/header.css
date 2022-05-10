@@ -42,7 +42,11 @@ span:hover {
 
 .left > a {
 	float: left;
-	margin-left: 94px;
+	margin-left: 8px;
+}
+
+#home {
+	margin-left: 92px;
 }
 
 .right > a {
