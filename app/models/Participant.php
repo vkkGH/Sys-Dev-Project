@@ -15,6 +15,14 @@ class Participant extends \app\core\Model{
 		return $STMT->fetch();
 	}
 
+	function getNum($medical_insurance_number) {
+		$SQL = 'SELECT * FROM participant WHERE medical_insurance_number = :medical_insurance_number';
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute(['medical_insurance_number'=>$medical_insurance_number]);
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Participant");
+		return $STMT->fetch();
+	}
+
 	function getAll() {
 		$SQL = 'SELECT * FROM participant';
 		$STMT = self::$_connection->prepare($SQL);
@@ -24,14 +32,13 @@ class Participant extends \app\core\Model{
 	}
 
 	function insert() {
-		if (isValid()) {
-			$STMT = self::$_connection->prepare($SQL);
+		// if (isValid()) {
 			$SQL = 'INSERT INTO participant(customer_id, first_name, last_name, gender, dob, address, city, 
 					postal_code, main_phone, secondary_phone, email, occupation, heard_from, years_of_practice, 
 					medical_insurance_number, exp_date, emer_contact, relation_to_player, emer_phone, allergies, 
 					med_history, epipen, meds, spec_needs, promotion, transport, volunteer, family, equip_needs, 
 					notes) 
-					VALUES(:first_name, :last_name, :gender, :address, :city, :postal_code, :main_phone, 
+					VALUES(:customer_id, :first_name, :last_name, :gender, :dob, :address, :city, :postal_code, :main_phone, 
 					:secondary_phone, :email, :occupation, :heard_from, :years_of_practice, :medical_insurance_number, 
 					:exp_date, :emer_contact, :relation_to_player, :emer_phone, :allergies, :med_history, :epipen, 
 					:meds, :spec_needs, :promotion, :transport, :volunteer, :family, :equip_needs, :notes)';
@@ -48,7 +55,7 @@ class Participant extends \app\core\Model{
 					'epipen'=>$this->epipen, 'meds'=>$this->meds, 'spec_needs'=>$this->spec_needs, 
 					'promotion'=>$this->promotion, 'transport'=>$this->transport, 'volunteer'=>$this->volunteer, 
 					'family'=>$this->family, 'equip_needs'=>$this->equip_needs, 'notes'=>$this->notes]);
-		}
+		// }
 	}
 
 	function update() {
