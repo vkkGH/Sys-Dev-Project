@@ -42,19 +42,23 @@
 				Emergency Phone: $data->emer_phone<br>
 				Allergies: $data->allergies<br>
 				Medical History: $data->med_history<br>
-				Epipen? "; if ($data->epipen == 0) { echo "<td>No</td><br>"; } else { echo "<td>No</td><br>"; }
+				Epipen? "; if ($data->epipen == 0) { echo "<td>No</td><br>"; } else { echo "<td>Yes</td><br>"; }
 				echo "Medication: $data->meds<br>
 				Special Needs: $data->spec_needs<br>
-				Willing to Promote? "; if ($data->promotion == 0) { echo "<td>No</td><br>"; } else { echo "<td>No</td><br>"; }
+				Willing to Promote? "; if ($data->promotion == 0) { echo "<td>Yes</td><br>"; } else { echo "<td>No</td><br>"; }
 				echo "Willing to be Transported to Events? "; if ($data->transport == 0) { echo "<td>No</td><br>"; } else { echo "<td>No</td><br>"; }
-				echo "Willing to Volunteer? "; if ($data->volunteer == 0) { echo "<td>No</td><br>"; } else { echo "<td>No</td><br>"; }
-				echo "Family Already in Club? "; if ($data->family == 0) { echo "<td>No</td><br>"; } else { echo "<td>No</td><br>"; }
+				echo "Willing to Volunteer? "; if ($data->volunteer == 0) { echo "<td>Yes</td><br>"; } else { echo "<td>No</td><br>"; }
+				echo "Family Already in Club? "; if ($data->family == 0) { echo "<td>Yes</td><br>"; } else { echo "<td>No</td><br>"; }
 				echo "Needed Equipment: $data->equip_needs<p>
 				<h5>Notes:</h5>
 				<p>$data->notes</p>";
 		?>
+		
+		<br>
+		
+		<button class="print" onClick="window.print()">Print this page</button>
 	</div>
-	<button onClick="window.print()">Print this page</button>
+	
 </body>
 
 </html>

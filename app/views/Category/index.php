@@ -10,14 +10,12 @@
 	<link rel="stylesheet" type="text/css" href="/app/styles/tables.css">
 
 	<title><?= _("Category Index") ?></title>
-	<?php
-			$this->view('shared/navigation');
-		?>
+		<?php $this->view('shared/header'); ?>
 
 </head>
 <body>
 	<div class='container'>
-		<table>
+		<table class="data">
 			<tr>
     <th>First Name</th>
     <th>Last Name</th>

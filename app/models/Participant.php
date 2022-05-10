@@ -88,4 +88,31 @@ class Participant extends \app\core\Model{
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Participant");
 		return $STMT->fetch();
 	}
+
+	public function getParticipantBySearch($Customer) {
+		$yes = "WHERE participant.first_name LIKE '%$Customer%' OR participant.last_name LIKE '%$Customer%' OR participant.gender LIKE '%$Customer%' OR participant.dob LIKE '%$Customer%' OR participant.address LIKE '%$Customer%' OR participant.city LIKE '%$Customer%' OR participant.postal_code LIKE '%$Customer%' OR participant.main_phone LIKE '%$Customer%' OR participant.secondary_phone LIKE '%$Customer%' OR participant.email LIKE '%$Customer%' OR category.category LIKE '%$Customer%'";
+		$SQL = "SELECT * FROM Participant JOIN category ON participant.participant_id = category.participant_id $yes";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Participant");
+		return $STMT->fetchAll();
+	}
+
+	public function getParticipantsMedicalBySearch($Customer) {
+		$yes = "WHERE first_name LIKE '%$Customer%' OR last_name LIKE '%$Customer%' OR gender LIKE '%$Customer%' OR medical_insurance_number LIKE '%$Customer%' OR exp_date LIKE '%$Customer%' OR emer_contact LIKE '%$Customer%' OR relation_to_player LIKE '%$Customer%' OR emer_phone LIKE '%$Customer%' OR allergies LIKE '%$Customer%' OR med_history LIKE '%$Customer%' OR epipen LIKE '%$Customer%' OR meds LIKE '%$Customer%' OR spec_needs LIKE '%$Customer%'";
+		$SQL = "SELECT * FROM Participant $yes";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Participant");
+		return $STMT->fetchAll();
+	}
+
+	public function getParticipantsMiscBySearch($Customer) {
+		$yes = "WHERE first_name LIKE '%$Customer%' OR last_name LIKE '%$Customer%' OR gender LIKE '%$Customer%' OR occupation LIKE '%$Customer%' OR heard_from LIKE '%$Customer%' OR years_of_practice LIKE '%$Customer%' OR promotion LIKE '%$Customer%' OR transport LIKE '%$Customer%' OR volunteer LIKE '%$Customer%' OR family LIKE '%$Customer%' OR equip_needs LIKE '%$Customer%'";
+		$SQL = "SELECT * FROM Participant $yes";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Participant");
+		return $STMT->fetchAll(); // weird thing with the yes or no's
+	}
 }
