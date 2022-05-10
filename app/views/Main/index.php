@@ -33,9 +33,6 @@
           <input type="text" name ="username"placeholder="username(admin)"/>
           <input type="password" name = "password" placeholder="password(1234)"/>
           <button type = submit name  = "login">login</button>
-           
-
-
 
           
         </form>
