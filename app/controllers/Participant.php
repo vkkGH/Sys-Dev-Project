@@ -1,7 +1,6 @@
 <?php
 namespace app\controllers;
 
-#[\app\filters\Login]
 class Participant extends \app\core\Controller {
 	
 	public function index() {
@@ -135,7 +134,7 @@ class Participant extends \app\core\Controller {
 			$category->update();
 			header('location:/Category/get' . $category->category);
 		}
-	 }
+	}
 
 	public function delete($participant_id) {
 		$participant = new \app\models\Participant();

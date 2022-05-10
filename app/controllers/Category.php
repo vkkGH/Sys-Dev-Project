@@ -1,7 +1,6 @@
 <?php
 namespace app\controllers;
 
-#[\app\filters\Login]
 class Category extends \app\core\Controller {
 
 	public function index() {
