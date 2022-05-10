@@ -2,7 +2,7 @@
 namespace app\controllers;
 
 class Category extends \app\core\Controller {
-	
+
 	public function index() {
 		$myCategory = new \app\models\Category();
 		$category = $myCategory->getAll();
@@ -49,6 +49,7 @@ class Category extends \app\core\Controller {
 		$this->view('Category/index',$category);
 		
 	}
+
 	public function total() {
 		$myCategory = new \app\models\Category();
 		$category = $myCategory->getSenior();
@@ -76,10 +77,4 @@ class Category extends \app\core\Controller {
 		$category->delete($category_id);
 		header('location:/Category/index');
 	}
-
-	// public function details($category_id){
-	// 	$category = new \app\models\Category();
-	// 	$category= $category->get($category_id);//get the specific category
-	// 	$this->view('Category/details', $category);
-	// }
 }

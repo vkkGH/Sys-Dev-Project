@@ -50,95 +50,96 @@ class Form extends \app\core\Controller {
 			$newParticipant->main_phone 				= $_POST['main_phone'];
 			$newParticipant->secondary_phone			= $_POST['secondary_phone'];
 			$newParticipant->email 						= $_POST['email'];
-			$newParticipant->occupation					      = $_POST['occupation'];
-			$newParticipant->heard_from 				      = $_POST['heard_from'];
-			$newParticipant->years_of_practice			  = $_POST['years_of_practice'];
+			$newParticipant->occupation					= $_POST['occupation'];
+			$newParticipant->heard_from 				= $_POST['heard_from'];
+			$newParticipant->years_of_practice			= $_POST['years_of_practice'];
 			$newParticipant->medical_insurance_number	= $_POST['medical_insurance_number'];
-			$newParticipant->exp_date					    = $_POST['exp_date'];
-			$newParticipant->emer_contact				  = $_POST['emer_contact'];
-			$newParticipant->relation_to_player	  = $_POST['relation_to_player'];
-			$newParticipant->emer_phone					  = $_POST['emer_phone'];
-			$newParticipant->allergies					  = $_POST['allergies'];
-			$newParticipant->med_history				  = $_POST['med_history'];
-			$newParticipant->epipen						    = $_POST['epipen'];
-			$newParticipant->emer_phone					  = $_POST['emer_phone'];
-			$newParticipant->meds						      = $_POST['meds'];
-			$newParticipant->spec_needs					  = $_POST['spec_needs'];
-			$newParticipant->promotion					  = $_POST['promotion'];
-			$newParticipant->transport					  = $_POST['transport'];
-			$newParticipant->volunteer					  = $_POST['volunteer'];
-			$newParticipant->family						    = $_POST['family'];
-			$newParticipant->equip_needs				  = $_POST['equip_needs'];
-			$newParticipant->notes						    = $_POST['notes'];
+			$newParticipant->exp_date					= $_POST['exp_date'];
+			$newParticipant->emer_contact				= $_POST['emer_contact'];
+			$newParticipant->relation_to_player	  		= $_POST['relation_to_player'];
+			$newParticipant->emer_phone					= $_POST['emer_phone'];
+			$newParticipant->allergies					= $_POST['allergies'];
+			$newParticipant->med_history				= $_POST['med_history'];
+			$newParticipant->epipen						= $_POST['epipen'];
+			$newParticipant->emer_phone					= $_POST['emer_phone'];
+			$newParticipant->meds						= $_POST['meds'];
+			$newParticipant->spec_needs					= $_POST['spec_needs'];
+			$newParticipant->promotion					= $_POST['promotion'];
+			$newParticipant->transport					= $_POST['transport'];
+			$newParticipant->volunteer					= $_POST['volunteer'];
+			$newParticipant->family						= $_POST['family'];
+			$newParticipant->equip_needs				= $_POST['equip_needs'];
+			$newParticipant->notes						= $_POST['notes'];
 
 			$newParticipant->insert();
 
 			$participant = new \app\models\Participant();
-      $participant = $participant->getNum($_POST['medical_insurance_number']);
+      		$participant = $participant->getNum($_POST['medical_insurance_number']);
 
 			$newCategory->participant_id 	= $participant->participant_id;
-			$newCategory->category 				= $_POST['category'];
-			$newCategory->schedule 				= $_POST['schedule'];
+			$newCategory->category 			= $_POST['category'];
+			$newCategory->schedule 			= $_POST['schedule'];
 
-			if ($_POST['category'] == 'PAMPLEMOUSSE'){
+
+			$tempSchedule = "";
+			if ($_POST['category'] == 'PAMPLEMOUSSE') {
 				$myCategory = new \app\models\Category();
 				$category = $myCategory->getPamplemousse();
-				if (count($category) < 10){
+				if (count($category) < 10) {
 					$tempSchedule= $_POST['schedule'];
 				} else {
 					header('location:/Form/failure');
 				}
-				
 			}
-			if ($_POST['category'] == 'U13'){
+
+			if ($_POST['category'] == 'U13') {
 				$myCategory = new \app\models\Category();
 				$category = $myCategory->getU13();
-				if (count($category) < 10){
+				if (count($category) < 10) {
 					$tempSchedule = "Sunday, Tuesday";
 				} else {
 					header('location:/Form/failure');
 				}
-				
 			}
-			if ($_POST['category'] == 'U15'){
+
+			if ($_POST['category'] == 'U15') {
 				$myCategory = new \app\models\Category();
 				$category = $myCategory->getU15();
-				if (count($category) < 10){
+				if (count($category) < 10) {
 					$tempSchedule = "Thursday, Friday";
 				} else {
 					header('location:/Form/failure');
-				}
-				
+				}		
 			}
-			if ($_POST['category'] == 'U17'){
+
+			if ($_POST['category'] == 'U17') {
 				$myCategory = new \app\models\Category();
 				$category = $myCategory->getU17();
-				if (count($category) < 10){
+				if (count($category) < 10) {
 					$tempSchedul = "Sunday, Tuesday";
 				} else {
 					header('location:/Form/failure');
-				}
-				
+				}		
 			}
-			if ($_POST['category'] == 'U19'){
+
+			if ($_POST['category'] == 'U19') {
 				$myCategory = new \app\models\Category();
 				$category = $myCategory->getU19();
-				if (count($category) < 10){
+				if (count($category) < 10) {
 					$tempSchedule = "Tuesday, Friday";
 				} else {
 					header('location:/Form/failure');
 				}
-				
 			}
-			if ($_POST['category'] == 'SENIOR'){
+
+			if ($_POST['category'] == 'SENIOR') {
 				$myCategory = new \app\models\Category();
 				$category = $myCategory->getSENIOR();
-				if (count($category) < 10){
+				if (count($category) < 10) {
 					$tempSchedule = "Friday, Saturday";
 				} else {
 					header('location:/Form/failure');
 				}
-				
 			}
 
 			$newCategory->schedule = $tempSchedule;
@@ -150,11 +151,11 @@ class Form extends \app\core\Controller {
 		}
 	}
 
-	public function success(){
+	public function success() {
         $this->view('Form/success');
-  }
+  	}
 
-	public function failure(){
+	public function failure() {
 		$this->view('Form/failure');
 	}
 }
