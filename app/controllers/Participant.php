@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+#[\app\filters\Login]
 class Participant extends \app\core\Controller {
 	
 	public function index() {
@@ -32,8 +33,7 @@ class Participant extends \app\core\Controller {
 			$participant = new \app\models\Participant();
 			$participant = $participant->getAll();
 			$this->view('Participant/misc', $participant);
-		}
-		else {
+		} else {
 			$participants = new \app\models\Participant();
 			$participant = $participants -> getParticipantsMiscBySearch($_POST['csearch']);
 			$this->view('Participant/misc', $participant);
@@ -123,7 +123,7 @@ class Participant extends \app\core\Controller {
 	 	}
 	 }
 
-	 public function updateCategory($participant_id) {
+	public function updateCategory($participant_id) {
 		$category = new \app\models\Category();
 		$category= $category->get($participant_id);
 		if (!isset($_POST['action'])) {

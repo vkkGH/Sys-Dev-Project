@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+#[\app\filters\Login]
 class Customer extends \app\core\Controller {
 	
 	public function index() {
@@ -28,15 +29,13 @@ class Customer extends \app\core\Controller {
 		
 	}
 
-	public function update($customer_id){
-		//TODO: update a specific record
+	public function update($customer_id) {
 		$customer = new \app\models\Customer();
-		$customer= $customer->get($customer_id);//get the specific client
-		//TODO: check if the client exists
-		if(!isset($_POST['action'])){
+		$customer= $customer->get($customer_id);
+		if (!isset($_POST['action'])){
 			//show the view
 			$this->view('Customer/update', $customer);
-		}else{
+		} else {
 			$customer->first_name=$_POST['first_name'];
 			$customer->last_name=$_POST['last_name'];
 			$customer->gender=$_POST['gender'];
