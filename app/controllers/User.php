@@ -18,7 +18,7 @@ class User extends \app\core\Controller{
 					$_SESSION['username'] = $user->username;
 					$_SESSION['user_id'] = $user->user_id;
 
-					header('location:/User/secureplace');
+					header('location:/Main/index2');
 				}else{
 					//not the correct password
 					$this->view('User/login','Incorrect username/password combination.');

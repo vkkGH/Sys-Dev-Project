@@ -14,11 +14,17 @@ class Customer extends \app\core\Controller {
 			$this->view('Customer/index', $customer);
 		}
 	}
-	
 	public function payment() {
-		$customer = new \app\models\Customer();
-		$customer = $customer->getAll();
-		$this->view('Customer/payment', $customer);
+		if (!isset($_POST['search'])) {
+			$customer = new \app\models\Customer();
+			$customer = $customer->getAll();
+			$this->view('Customer/payment', $customer);
+		} else {
+			$customers = new \app\models\Customer();
+			$customer = $customers -> getPaymentInfoBySearch($_POST['csearch']);
+			$this->view('Customer/payment', $customer);
+		}
+		
 	}
 
 	// public function create(){

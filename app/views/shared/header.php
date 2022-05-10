@@ -4,11 +4,12 @@
 
 	<div class="left">
 		<?php $this->view('shared/navigation'); ?>	
-		<a class="link" href='/Main/index'>Home</a>
+		<a class="link" href='/Home/index'>Home</a>
 	</div>
 
 	<div class="right">
 		<?php $this->view('shared/search'); ?>	
+		<a class="link" href='/Main/index'>Logout</a>
 	</div>
 </div> 
 

@@ -4,66 +4,93 @@ namespace app\controllers;
 class Form extends \app\core\Controller{
 	public function index(){
 		
-		$this->view('Form/index');
-	}
 
-	public function create(){
-		if(!isset($_POST['action'])){	//display he view if I don't submit the form
-			$this->view('Form/create');
-		}else{	//process the data
+		if(!isset($_POST['action'])){	
+			$this->view('Form/index');
+		}else{	
+			
 			$newForm = new \app\models\Form();
-			$newForm->first_name=$_POST['first_name'];
-			$newForm->last_name=$_POST['last_name'];
-			$newForm->notes=$_POST['notes'];
-			$newForm->phone=$_POST['phone'];
+			$newForm->category=$_POST['category'];
+			$newForm->schedule=$_POST['schedule'];
+			if ($_POST['category'] == 'PAMPLEMOUSSE'){
+				$myCategory = new \app\models\Category();
+				$category = $myCategory->getPamplemousse();
+				if (count($category) < 10){
+					$tempSchedule= $_POST['schedule'];
+				} else {
+					header('location:/Form/failure');
+				}
+				
+			}
+			if ($_POST['category'] == 'U13'){
+				$myCategory = new \app\models\Category();
+				$category = $myCategory->getU13();
+				if (count($category) < 10){
+					$tempSchedule = "Sunday, Tuesday";
+				} else {
+					header('location:/Form/failure');
+				}
+				
+			}
+			if ($_POST['category'] == 'U15'){
+				$myCategory = new \app\models\Category();
+				$category = $myCategory->getU15();
+				if (count($category) < 10){
+					$tempSchedule = "Thursday, Friday";
+				} else {
+					header('location:/Form/failure');
+				}
+				
+			}
+			if ($_POST['category'] == 'U17'){
+				$myCategory = new \app\models\Category();
+				$category = $myCategory->getU17();
+				if (count($category) < 10){
+					$tempSchedul = "Sunday, Tuesday";
+				} else {
+					header('location:/Form/failure');
+				}
+				
+			}
+			if ($_POST['category'] == 'U19'){
+				$myCategory = new \app\models\Category();
+				$category = $myCategory->getU19();
+				if (count($category) < 10){
+					$tempSchedule = "Tuesday, Friday";
+				} else {
+					header('location:/Form/failure');
+				}
+				
+			}
+			if ($_POST['category'] == 'SENIOR'){
+				$myCategory = new \app\models\Category();
+				$category = $myCategory->getSENIOR();
+				if (count($category) < 10){
+					$tempSchedule = "Friday, Saturday";
+				} else {
+					header('location:/Form/failure');
+				}
+				
+			}
+			
+
+			// do the same thing for customer and participant (write your insert in the form model)
+
+
+			$newForm->schedule = $tempSchedule;
+			$newForm->practices_per_week = count(explode(",",$tempSchedule));
 			$newForm->insert();
-			header('location:/Form/index');
+			header('location:/Form/success');
 		}
+		
 	}
 
-	public function update($client_id){
-		//TODO: update a specific record
-		$client = new \app\models\Form();
-		$client= $client->get($client_id);//get the specific client
-		//TODO: check if the client exists
-		if(!isset($_POST['action'])){
-			//show the view
-			$this->view('Form/update', $client);
-		}else{
-			$client->first_name=$_POST['first_name'];
-			$client->last_name=$_POST['last_name'];
-			$client->notes=$_POST['notes'];
-			$client->phone=$_POST['phone'];
-			$client->update();
-			header('location:/Form/index');
-		}
+	public function success(){
+		$this->view('Form/success');
 	}
 
-	public function delete($client_id){//TODO: make sure to satisfy the issue for the constraint
-		$client = new \app\models\Form();
-		$client->delete($client_id);
-		header('location:/Form/index');
-	}
-
-	public function details($client_id){
-		$client = new \app\models\Form();
-		$client= $client->get($client_id);//get the specific client
-		$this->view('Form/details', $client);
-	}
-
-	public function contactInformation(){
-		$fileHandle = fopen('contactInformation.txt', 'r');
-
-		flock($fileHandle, LOCK_SH);
-
-		$jsonData = fread($fileHandle, 1024);
-
-		fclose($fileHandle);
-
-		$dataObj = json_decode($jsonData);
-
-		$this->view('Form/contactInformation', $dataObj);
-
+	public function failure(){
+		$this->view('Form/failure');
 	}
 
 }

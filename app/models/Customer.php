@@ -70,4 +70,13 @@ class Customer extends \app\core\Model {
 		$STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Customer");
 		return $STMT->fetchAll();
 	}
+
+	public function getPaymentInfoBySearch($Customer) {
+		$yes = "WHERE customer_id LIKE '%$Customer%' OR first_name LIKE '%$Customer%' OR last_name LIKE '%$Customer%' OR gender LIKE '%$Customer%' OR main_phone LIKE '%$Customer%' OR secondary_phone LIKE '%$Customer%' OR email LIKE '%$Customer%' OR payment_installments LIKE '%$Customer%' OR payment_method LIKE '%$Customer%'";
+		$SQL = "SELECT * FROM Customer $yes";
+		$STMT = self::$_connection->prepare($SQL);
+		$STMT->execute();
+		$STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Customer");
+		return $STMT->fetchAll();
+	}
 }
