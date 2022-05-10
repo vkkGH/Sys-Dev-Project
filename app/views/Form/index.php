@@ -9,21 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="/app/styles/general.css">
   	<title>Form</title>
 
-
-  	<?php
-
-		
-
-	
-  	
-
-
-			 $this->view('shared/header');
-                 
-
-
-    ?>
-
 </head>
 
 <body>
