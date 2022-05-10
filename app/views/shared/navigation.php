@@ -22,6 +22,7 @@
 	<a href='/Category/getU17'>U17 Category</a>
 	<a href='/Category/getU19'>U19 Category</a>
 	<a href='/Category/getSenior'>Senior Category</a>
+	<a href='/Category/total'>Total Registrations</a>
 	
 </div>
 
