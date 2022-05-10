@@ -45,10 +45,12 @@
 					</td>
 				<tr>";
 			}
+			echo("there are " . count($data) . " people registered in this category");
 		}
 			
 		?>
 		</table>
+
 	</div>
 </body>
 </html>

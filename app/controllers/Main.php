@@ -5,15 +5,12 @@ namespace app\controllers;
 class Main extends \app\core\Controller {
 
 
-
 	
 	public function index() {
-
-		
-$this->view('Main/index');
+		$this->view('Main/index');
 
 
-if(!isset($_POST['login'])){//there is no form being submitted
+	if(!isset($_POST['login'])){//there is no form being submitted
 		
 		}else{//there is a form submitted
 			
@@ -21,10 +18,6 @@ if(!isset($_POST['login'])){//there is no form being submitted
 			{
 
 					header('location:/Home/index');
-
-
-
-			
 
 		}
 	}

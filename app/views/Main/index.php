@@ -33,7 +33,7 @@
           <input type="text" name ="username"placeholder="username(admin)"/>
           <input type="password" name = "password" placeholder="password(1234)"/>
           <button type = submit name  = "login">login</button>
-          <p class="message">Want to join the club?<a href='/Form/index'>JOIN NOW</a></p>
+          
         </form>
       </div>
     </div>
