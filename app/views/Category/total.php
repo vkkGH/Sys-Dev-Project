@@ -8,15 +8,21 @@
 	
 	<link rel="stylesheet" type="text/css" href="/app/styles/general.css">
   
-	<title>Form</title>
-
+	<title>Total</title>
+<?php $this->view('shared/header'); ?>
 </head>
 
 <body>
 	
 	<div class="container">
-		<h1>Success</h1>
-		<p>Form submitted successfuly. </p> <a href="Form/index">Fill out another form</a>
+		<h1>Total registrations</h1>
+		<p>
+			<?php
+
+				echo "Total registrations: " . $data;
+
+			?>
+		 </p> 
 	</div>
 </body>
 
