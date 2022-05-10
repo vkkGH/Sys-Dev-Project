@@ -18,7 +18,7 @@ class User extends \app\core\Controller{
 					$_SESSION['username'] = $user->username;
 					$_SESSION['user_id'] = $user->user_id;
 
-					header('location:/Main/index2');
+					header('location:/User/secureplace');
 				}else{
 					//not the correct password
 					$this->view('User/login','Incorrect username/password combination.');
@@ -29,23 +29,7 @@ class User extends \app\core\Controller{
 		}
 	}
 
-	function register(){//register here
-		if(!isset($_POST['action'])){//there is no form being submitted
-			$this->view('User/register');
-		}else{//there is a form submitted
-			$newUser = new \app\models\User();
-			$newUser->username = $_POST['username'];
-
-			 if(!$newUser->exists() && $_POST['password'] == $_POST['password_confirm']){
-			 	$newUser->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-			 	$newUser->insert();
-			 	header('location:/User/index');
-			 }else{
-				$this->view('User/register','The user account with that username already exists.');
-			 }
-		}
-	}
+	
 
 	#[\app\filters\Login]
 	function logout(){

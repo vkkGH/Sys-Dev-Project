@@ -14,7 +14,11 @@
 
 <body>
 
-	<?php $this->view('shared/header'); ?>
+	<?php
+	
+			 $this->view('shared/header'); 
+
+	 ?>
 
 	<br><br><br>
 	<div class="d-flex justify-content-center align-items-center mt-5">

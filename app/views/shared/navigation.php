@@ -3,6 +3,7 @@
 <div id="mySidenav" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	
+	<br>
 	
 	<a href='/Customer/index'>Customers</a>
 	<a href='/Customer/payment'>Payment Information</a>
@@ -20,6 +21,7 @@
 	<a href='/Category/getU17'>U17 Category</a>
 	<a href='/Category/getU19'>U19 Category</a>
 	<a href='/Category/getSenior'>Senior Category</a>
+	<a href='/Category/total'>Total Registrations</a>
 	
 </div>
 

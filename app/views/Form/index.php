@@ -7,18 +7,23 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="/app/styles/general.css">
-  
-	<title>Form</title>
+  	<title>Form</title>
 
 </head>
 
 <body>
 
-	<?php $this->view('shared/header'); ?>
+
+
+
+
+
+
+	
 	
 	<div class="container">
 		<h1>Fill out this form for every participant you wish to enroll</h1>
-		
+
 		<form class="p-3" method="post">
 			<h3>Customer Section</h3>
 			
@@ -27,6 +32,7 @@
 				<option value="yes">For myself</option>
 				<option value="no">For someone else (e.g child)</option>
 			</select>
+
 
 			<label class='form-label'>First Name:<input type='text' name='first_name' class='form-control' /></label><br>
 
@@ -38,6 +44,7 @@
 				<option value="female">Female</option>
 				<option value="other">Other</option>
 			</select>
+
 
 			<label class='form-label'>Address:<input type='text' name='address' class='form-control' /></label><br>  
 
@@ -85,6 +92,7 @@
         <option value="Wednesday, Sunday">Wednesday, Sunday</option>
       </select>
 
+
 			<label class='form-label' id='participant_first_name' >Participant First Name:<input type='text' name='participant_first_name' class='form-control'  /></label><br>  
 
 			<label class='form-label' id='participant_last_name' >Participant Last Name:<input type='text' name='participant_last_name' class='form-control' /></label><br>  
@@ -95,6 +103,7 @@
         <option value="female">Female</option>
         <option value="other">Other</option>
       </select>
+
 
 			<label class='form-label'>Participant Date Of Birth:<input type='date' name='dob' class='form-control' /></label><br>  
 

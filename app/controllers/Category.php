@@ -49,6 +49,13 @@ class Category extends \app\core\Controller {
 		$this->view('Category/index',$category);
 		
 	}
+	public function total() {
+		$myCategory = new \app\models\Category();
+		$category = $myCategory->getSenior();
+		$total = count($myCategory->getPamplemousse()) + count($myCategory->getU13()) + count($myCategory->getU15()) + count($myCategory->getU17()) + count($myCategory->getU19()) + count($myCategory->getSENIOR());
+		$this->view('Category/total',$total);
+		
+	}
 
 	public function update($participant_id) {
 		$category = new \app\models\Category();
