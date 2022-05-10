@@ -13,8 +13,10 @@
 </head>
 
 <body>
+<?php $this->view('shared/header'); ?>
 
-	<?php $this->view('shared/header'); ?>
+
+	
 	
 	<div class="container">
 		<h1>Fill out this form for every participant you wish to enroll</h1>
