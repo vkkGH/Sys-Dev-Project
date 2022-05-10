@@ -1,6 +1,5 @@
 <?php
 namespace app\models;
-
 class Main extends \app\core\Model{
 
 	function __construct(){
@@ -22,15 +21,14 @@ class Main extends \app\core\Model{
 	}
 
 	function insert(){
-		$username = 'admin';
-		$password = '123';
-
-
-		$SQL = 'INSERT INTO admin(username,password_hash) VALUES(admin,123)';
+	
+		$SQL = 'INSERT INTO admin (id,username,password_hash) VALUES(id,username, password_hash)';
 		$STMT = self::$_connection->prepare($SQL);
-		$STMT->execute(['username'=>$this->username,'password_hash'=>$this->password_hash]);
+		$STMT->execute(['id'=>$this->id,'username'=>$this->username,'password_hash'=>$this->password_hash]);
+	}
+	
+
+
 	}
 
 
-
-}

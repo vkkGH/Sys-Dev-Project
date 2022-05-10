@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="/app/styles/login.css">
 	<link rel="stylesheet" type="text/css" href="/app/styles/general.css">
 	
-	
+	 
 	<title>Login</title>
 
 
@@ -33,10 +33,27 @@
           <input type="text" name ="username"placeholder="username(admin)"/>
           <input type="password" name = "password" placeholder="password(1234)"/>
           <button type = submit name  = "login">login</button>
+
           
         </form>
       </div>
     </div>
+
+<br>
+<br>
+<br>
+<br>
+<center>
+
+<h1>
+  Customer? Want to fill out a form? Click the link below to enroll!
+
+
+</h1>
+
+<a href="/Form/index.php"> FILL OUT FORM HERE</a>
+</center>
+
 </body>
 </body>
 
