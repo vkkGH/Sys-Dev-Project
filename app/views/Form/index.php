@@ -10,19 +10,7 @@
   	<title>Form</title>
 
 
-  	<?php
 
-		
-
-	
-  	
-
-
-			 $this->view('shared/header');
-                 
-
-
-    ?>
 
 </head>
 
