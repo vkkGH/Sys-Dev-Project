@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2022 at 03:27 AM
+-- Generation Time: May 10, 2022 at 11:35 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -42,9 +42,20 @@ CREATE TABLE `admin` (
 CREATE TABLE `category` (
   `participant_id` int(11) NOT NULL,
   `category` varchar(25) NOT NULL,
-  `schedule` varchar(25) NOT NULL,
+  `schedule` varchar(50) NOT NULL,
   `practices_per_week` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`participant_id`, `category`, `schedule`, `practices_per_week`) VALUES
+(4, 'U19', 'Tuesday, Friday', 2),
+(5, 'PAMPLEMOUSSE', 'Monday, Thursday', 2),
+(6, 'SENIOR', 'Friday, Saturday', 2),
+(7, 'U15', 'Thursday, Friday', 2),
+(8, 'U13', 'Sunday, Tuesday', 2);
 
 -- --------------------------------------------------------
 
@@ -67,6 +78,17 @@ CREATE TABLE `customer` (
   `payment_installments` int(11) NOT NULL,
   `payment_method` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`customer_id`, `first_name`, `last_name`, `gender`, `address`, `city`, `postal_code`, `main_phone`, `secondary_phone`, `email`, `laval_reward`, `payment_installments`, `payment_method`) VALUES
+(5, 'Jon', 'Doe', 'male', '123 street', 'montreal', 'h4g 3lf', '12344534', '213432', 'email@email.com', 'no', 1, 'direct deposit'),
+(6, 'Charles', 'Barkley', 'male', '543 street', 'Laval', '5j543 g453', '43534534', '5464', 'g@gk.com', '132432', 3, 'cheque'),
+(7, 'Logan', 'Poe', 'male', '543 street', 'Laval', '432 54353', '423423453', '435345', 'l@gmail.com', '4234', 1, 'direct deposit'),
+(8, 'Jeff', 'Poe', 'male', '321 street', 'laval', '43242 423', '4234234', '5435345', 'd@gads.com', '312', 1, 'direct deposit'),
+(9, 'Toad', 'Love', 'male', '4324 street', 'montreal', '432 543', '438979', '89798', 'd@gaj.com', 'no', 1, 'cheque');
 
 -- --------------------------------------------------------
 
@@ -107,6 +129,17 @@ CREATE TABLE `participant` (
   `equip_needs` varchar(25) NOT NULL,
   `notes` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `participant`
+--
+
+INSERT INTO `participant` (`participant_id`, `customer_id`, `first_name`, `last_name`, `gender`, `dob`, `address`, `city`, `postal_code`, `main_phone`, `secondary_phone`, `email`, `occupation`, `heard_from`, `years_of_practice`, `medical_insurance_number`, `exp_date`, `emer_contact`, `relation_to_player`, `emer_phone`, `allergies`, `med_history`, `epipen`, `meds`, `spec_needs`, `promotion`, `transport`, `volunteer`, `family`, `equip_needs`, `notes`) VALUES
+(4, 5, 'Jon', 'Doe', 'male', '2022-05-19', '123 street', 'montreal', 'h4g 3lf', '12344534', '213432', 'email@email.com', 'NA', 'facebook', 0, '321432', '2022-06-02', 'Mike', 'father', '2134235', 'no', 'no', 0, 'no', 'no', 1, 0, 1, 0, 'no', ''),
+(5, 6, 'Charles', 'Barkley', 'male', '2022-05-17', '543 street', 'Laval', '5j543 g453', '43534534', '5464', 'g@gk.com', 'vanier', 'website', 3, '432424', '2022-05-19', 'jeff', 'mother', '45235423', 'no', 'no', 0, 'no', 'no', 0, 1, 1, 0, 'no', ''),
+(6, 7, 'Logan', 'Poe', 'male', '2022-05-12', '543 street', 'Laval', '432 54353', '423423453', '435345', 'l@gmail.com', 'NA', 'friend', 2, '534534', '2022-05-04', 'Nick', 'brother', '543534', 'nuts', 'no', 1, 'no', 'no', 0, 0, 0, 0, 'no', ''),
+(7, 7, 'Robert', 'Jr', 'male', '2022-05-05', '321 street', 'laval', '43242 423', '4234234', '5435345', 'd@gads.com', 'NA', 'friend', 0, '432423', '2022-05-11', 'homer', 'father', '423423', 'no', 'no', 0, 'no', 'no', 0, 0, 0, 0, 'no', ''),
+(8, 9, 'Toad', 'Love', 'male', '2022-05-13', '4324 street', 'montreal', '432 543', '438979', '89798', 'd@gaj.com', 'NA', 'website', 0, '43242', '2022-05-17', 'Jeff', 'brother', '543523', 'no', 'no', 0, 'no', 'no', 1, 1, 1, 0, 'no', '');
 
 --
 -- Indexes for dumped tables
@@ -151,13 +184,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `participant`
 --
 ALTER TABLE `participant`
-  MODIFY `participant_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `participant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
