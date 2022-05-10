@@ -15,8 +15,8 @@
 <body>
 	
 	<div class="container">
-		<h1>Success</h1>
-		<p>Form submitted successfuly. </p> <a href="Form/index">Fill out another form</a>
+		<h1>Failure</h1>
+		<p>The category in which you tried to register is currently full, please select another one. </p> <a href="Form/index">Fill out another form</a>
 	</div>
 </body>
 

@@ -22,7 +22,7 @@
 		<h1>Fill out this form for every participant you wish to enroll</h1>
 		
 		
-		<form class="p-3">
+		<form class="p-3" method="post">
 			<h3>Customer Section</h3>
 			
 			<label for="responsible">Are you registering for yourself or for a participant for which you will be responsible?</label>
