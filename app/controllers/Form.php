@@ -3,9 +3,12 @@ namespace app\controllers;
 
 class Form extends \app\core\Controller{
 	public function index(){
+		
+
 		if(!isset($_POST['action'])){	
 			$this->view('Form/index');
 		}else{	
+			
 			$newForm = new \app\models\Form();
 			$newForm->category=$_POST['category'];
 			$newForm->schedule=$_POST['schedule'];
@@ -70,6 +73,10 @@ class Form extends \app\core\Controller{
 				
 			}
 			
+
+			// do the same thing for customer and participant (write your insert in the form model)
+
+
 			$newForm->schedule = $tempSchedule;
 			$newForm->practices_per_week = count(explode(",",$tempSchedule));
 			$newForm->insert();

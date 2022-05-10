@@ -13,10 +13,6 @@ class Home extends \app\core\Controller {
 $this->view('Home/index');
 
 
-
 }
-
-
-
 
 }
