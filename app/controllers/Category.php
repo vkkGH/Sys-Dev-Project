@@ -50,7 +50,6 @@ class Category extends \app\core\Controller {
 		
 	}
 
-
 	public function update($participant_id) {
 		$category = new \app\models\Category();
 		$category= $category->get($participant_id);

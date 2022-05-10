@@ -15,6 +15,14 @@ class Customer extends \app\core\Model {
 		return $STMT->fetch();
 	}
 
+	function getName($last_name) {
+        $SQL = 'SELECT * FROM customer WHERE last_name = :last_name';
+        $STMT = self::$_connection->prepare($SQL);
+        $STMT->execute(['last_name'=>$last_name]);
+        $STMT->setFetchMode(\PDO::FETCH_CLASS, "app\models\Customer");
+        return $STMT->fetch();
+    }
+
 	function getAll() {
 		$SQL = 'SELECT * FROM customer';
 		$STMT = self::$_connection->prepare($SQL);
@@ -24,7 +32,7 @@ class Customer extends \app\core\Model {
 	}
 
 	function insert() {
-		if (isValid()) {
+		// if (isValid()) {
 			$SQL = 'INSERT INTO customer(first_name, last_name, gender, address, city, postal_code, 
 					main_phone, secondary_phone, email, laval_reward, payment_installments, payment_method) 
 					VALUES(:first_name, :last_name, :gender, :address, :city, :postal_code, :main_phone, 
@@ -37,7 +45,7 @@ class Customer extends \app\core\Model {
 					'secondary_phone'=>$this->secondary_phone, 'email'=>$this->email, 
 					'laval_reward'=>$this->laval_reward, 'payment_installments'=>$this->payment_installments, 
 					'payment_method'=>$this->payment_method]);
-		}
+		// }
 	}
 
 	function update() {

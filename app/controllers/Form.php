@@ -1,39 +1,123 @@
 <?php
 namespace app\controllers;
 
-class Form extends \app\core\Controller{
-	public function index(){
-		if(!isset($_POST['action'])){	
+class Form extends \app\core\Controller {
+
+	public function index() {
+
+		if (!isset($_POST['action'])) {	
 			$this->view('Form/index');
-		}else{	
-			$newForm = new \app\models\Form();
-			$newForm->category=$_POST['category'];
-			$newForm->schedule=$_POST['schedule'];
-			if ($_POST['category'] == 'PAMPLEMOUSSE'){
-				$tempSchedule=$_POST['schedule'];
+		} else {
+			$newCustomer 	= new \app\models\Customer();
+			$newParticipant = new \app\models\Participant();
+			$newCategory 	= new \app\models\Form();
+			
+			$newCustomer->first_name 			= $_POST['first_name'];
+			$newCustomer->last_name 			= $_POST['last_name'];
+			$newCustomer->gender 				= $_POST['gender'];
+			$newCustomer->address 				= $_POST['address'];
+			$newCustomer->city 					= $_POST['city'];
+			$newCustomer->postal_code 			= $_POST['postal_code'];
+			$newCustomer->main_phone 			= $_POST['main_phone'];
+			$newCustomer->secondary_phone 		= $_POST['secondary_phone'];
+			$newCustomer->email 				= $_POST['email'];
+			$newCustomer->laval_reward 			= $_POST['laval_reward'];
+			$newCustomer->payment_installments 	= $_POST['payment_installments'];
+			$newCustomer->payment_method 		= $_POST['payment_method'];
+
+			$newCustomer->insert();
+
+			$customer = new \app\models\Customer();
+            $customer = $customer->getName($_POST['last_name']);
+
+            $newParticipant->customer_id 		= $customer->customer_id;
+
+			if ($_POST['responsible'] == 'yes') {
+				$newParticipant->first_name 	= $_POST['first_name'];
+				$newParticipant->last_name 		= $_POST['last_name'];
+				$newParticipant->gender 		= $_POST['gender'];
+				
+			} else {
+				$newParticipant->first_name 	= $_POST['participant_first_name'];
+				$newParticipant->last_name 		= $_POST['participant_last_name'];
+				$newParticipant->gender 		= $_POST['participant_gender'];
 			}
-			if ($_POST['U13'] == 'U13'){
-				$tempSchedule= "Sunday, Tuesday";
+			
+			$newParticipant->dob 						= $_POST['dob'];
+			$newParticipant->address 					= $_POST['address'];
+			$newParticipant->city 						= $_POST['city'];
+			$newParticipant->postal_code 				= $_POST['postal_code'];
+			$newParticipant->main_phone 				= $_POST['main_phone'];
+			$newParticipant->secondary_phone			= $_POST['secondary_phone'];
+			$newParticipant->email 						= $_POST['email'];
+			$newParticipant->occupation					= $_POST['occupation'];
+			$newParticipant->heard_from 				= $_POST['heard_from'];
+			$newParticipant->years_of_practice			= $_POST['years_of_practice'];
+			$newParticipant->medical_insurance_number	= $_POST['medical_insurance_number'];
+			$newParticipant->exp_date					= $_POST['exp_date'];
+			$newParticipant->emer_contact				= $_POST['emer_contact'];
+			$newParticipant->relation_to_player			= $_POST['relation_to_player'];
+			$newParticipant->emer_phone					= $_POST['emer_phone'];
+			$newParticipant->allergies					= $_POST['allergies'];
+			$newParticipant->med_history				= $_POST['med_history'];
+			$newParticipant->epipen						= $_POST['epipen'];
+			$newParticipant->emer_phone					= $_POST['emer_phone'];
+			$newParticipant->meds						= $_POST['meds'];
+			$newParticipant->spec_needs					= $_POST['spec_needs'];
+			$newParticipant->promotion					= $_POST['promotion'];
+			$newParticipant->transport					= $_POST['transport'];
+			$newParticipant->volunteer					= $_POST['volunteer'];
+			$newParticipant->family						= $_POST['family'];
+			$newParticipant->equip_needs				= $_POST['equip_needs'];
+			$newParticipant->notes						= $_POST['notes'];
+
+			$newParticipant->insert();
+
+			$participant = new \app\models\Participant();
+            $participant = $participant->getNum($_POST['medical_insurance_number']);
+
+			$newCategory->participant_id 		= $participant->participant_id;
+			$newCategory->category 				= $_POST['category'];
+			$newCategory->schedule 				= $_POST['schedule'];
+
+			if ($_POST['category'] == 'PAMPLEMOUSSE') {
+				$tempSchedule = $_POST['schedule'];
 			}
-			if ($_POST['U15'] == 'U15'){
+
+			if ($_POST['U13'] == 'U13') {
+				$tempSchedule = "Sunday, Tuesday";
+			}
+
+			if ($_POST['U15'] == 'U15') {
 				$tempSchedule = "Thursday, Friday";
 			}
-			if ($_POST['U17'] == 'U17'){
-				$tempSchedul = "Sunday, Tuesday";
+
+			if ($_POST['U17'] == 'U17') {
+				$tempSchedule = "Sunday, Tuesday";
 			}
-			if ($_POST['U19'] == 'U19'){
+
+			if ($_POST['U19'] == 'U19') {
 				$tempSchedule = "Tuesday, Friday";
 			}
-			if ($_POST['SENIOR'] == 'SENIOR'){
+
+			if ($_POST['SENIOR'] == 'SENIOR') {
 				$tempSchedule = "Friday, Saturday";
 			}
-			$newForm->schedule = $tempSchedule;
-			$newForm->practices_per_week = count(preg_split(",",$tempSchedule));
-			$newForm->insert();
+
+			$newCategory->schedule = $tempSchedule;
+			$newCategory->practices_per_week = count(explode(",", $tempSchedule));
+
+			$newCategory->insert();
+	
 			header('location:/Form/success');
 		}
-		
 	}
 
+	public function success(){
+        $this->view('Form/success');
+    }
 
+    public function failure(){
+        $this->view('Form/failure');
+    }
 }
